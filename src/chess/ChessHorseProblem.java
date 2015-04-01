@@ -8,9 +8,9 @@ public class ChessHorseProblem {
 	final public ChessBoard board;
 	final private Position start;
 
-	public ChessHorseProblem(Position start) {
+	public ChessHorseProblem(Position start, int size) {
 		this.start = start;
-		this.board = new ChessBoard(start);
+		this.board = new ChessBoard(start, size);
 	}
 
 	public boolean solution() {
@@ -24,14 +24,13 @@ public class ChessHorseProblem {
 		
 		for (Position p : this.availableFrom(from)) {
 			this.board.visit(p);
-			if (nextMove(p)) { 
+			
+			if (nextMove(p)) 
 				return true;
-			} else {
+			else 
 				board.stepBack();
-				return false;
-			}
+			
 		}
-		board.stepBack();
 		return false;
 	}
 
@@ -50,11 +49,11 @@ public class ChessHorseProblem {
 				Position(current.x - 2, current.y + 1),
 				Position(current.x - 2, current.y - 1),
 				Position(current.x - 1, current.y + 2),
+				Position(current.x - 1, current.y - 2),
+				Position(current.x + 1, current.y + 2), 
 				Position(current.x + 1, current.y - 2),
 				Position(current.x + 2, current.y + 1),
-				Position(current.x + 2, current.y - 1),
-				Position(current.x - 1, current.y - 2),
-				Position(current.x + 1, current.y + 2) 
+				Position(current.x + 2, current.y - 1)
 				};
 	}
 

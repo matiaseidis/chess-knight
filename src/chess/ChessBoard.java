@@ -8,21 +8,21 @@ public class ChessBoard {
 	Stack<Position> history = new Stack<>();
 	Position start;
 	// v * h
-	private boolean[][] squares = new boolean[8][8];
+	private final boolean[][] squares;
 	
-	public ChessBoard(Position start) {
+	public ChessBoard(Position start, int size) {
 		this.start = start;
+		this.squares = new boolean[size][size];
 		this.visit(start);
 	}
-	
 	
 	public boolean visited(Position p) {
 		return p.equals(start) || this.squares[p.x][p.y]; 
 	}
 	
 	public void visit(Position p) {
-		history.push(p);
-		maxReached = Math.max(maxReached, history.size());
+		this.history.push(p);
+		this.maxReached = Math.max(maxReached, history.size());
 		this.squares[p.x][p.y] = true;
 	}
 	
@@ -37,11 +37,11 @@ public class ChessBoard {
 	}
 	
 	public boolean allVisited() {
-		return this.history.size() == (this.squares.length * this.squares[0].length)+1;
+		return this.history.size() == this.squares.length * this.squares.length;
 	}
 
 	public boolean validSquare(Position next) {
-		return valid(next.x) && valid(next.y);
+		return this.valid(next.x) && this.valid(next.y);
 	}
 	
 	private boolean valid(int j) {
