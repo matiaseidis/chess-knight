@@ -3,12 +3,12 @@ package chess;
 import java.util.LinkedList;
 import java.util.List;
 
-public class ChessHorseProblem {
+public class ChessKnightRecursive {
 
 	final public ChessBoard board;
 	final private Position start;
 
-	public ChessHorseProblem(Position start, int size) {
+	public ChessKnightRecursive(Position start, int size) {
 		this.start = start;
 		this.board = new ChessBoard(start, size);
 	}
