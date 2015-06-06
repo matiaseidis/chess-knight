@@ -1,14 +1,14 @@
-package chess;
+package chess.solution.recursive;
 
 import java.util.LinkedList;
 import java.util.List;
 
-public class ChessKnightRecursive {
+public class FullPathRecursive {
 
 	final public ChessBoard board;
 	final private Position start;
 
-	public ChessKnightRecursive(Position start, int size) {
+	public FullPathRecursive(Position start, int size) {
 		this.start = start;
 		this.board = new ChessBoard(start, size);
 	}
@@ -34,7 +34,7 @@ public class ChessKnightRecursive {
 		return false;
 	}
 
-	private List<Position> availableFrom(chess.Position current) {
+	private List<Position> availableFrom(Position current) {
 
 		List<Position> result = new LinkedList<>();
 
@@ -44,7 +44,7 @@ public class ChessKnightRecursive {
 		return result;
 	}
 
-	private chess.Position[] calculateFrom(chess.Position current) {
+	private Position[] calculateFrom(Position current) {
 		return new Position[] { 
 				Position(current.x - 2, current.y + 1),
 				Position(current.x - 2, current.y - 1),
@@ -61,45 +61,4 @@ public class ChessKnightRecursive {
 		return new Position(v, h);
 	}
 
-}
-
-class Position {
-	public final int x;
-	public final int y;
-
-	public Position(int x, int y) {
-		super();
-		this.x = x;
-		this.y = y;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + y;
-		result = prime * result + x;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Position other = (Position) obj;
-		if (y != other.y)
-			return false;
-		if (x != other.x)
-			return false;
-		return true;
-	}
-
-	@Override
-	public String toString() {
-		return String.format("[%s - %s]", x, y);
-	}
 }

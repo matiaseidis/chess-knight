@@ -1,19 +1,19 @@
 package chess.graph;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.IntStream;
 
 /**
  * Created by meidis on 05/06/15.
  */
 public class UGraph {
 
-    private final Set<Integer>[] v;
+    protected final Set<Integer>[] v;
 
     public UGraph(int v) {
         this.v = new Set[v];
-        Arrays.fill(this.v, new HashSet<>());
+        IntStream.range(0, v).forEach(i -> this.v[i] = new HashSet<>());
     }
 
     public void connect(int a, int b) {

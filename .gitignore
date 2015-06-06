@@ -1,7 +1,8 @@
 /bin/
 .classpath
-chess-knight.iml
+*.iml
 bin
 .idea
 .project
 .settings
+*.log

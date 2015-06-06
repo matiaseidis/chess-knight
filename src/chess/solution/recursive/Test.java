@@ -1,4 +1,4 @@
-package chess;
+package chess.solution.recursive;
 
 public class Test {
 
@@ -9,7 +9,7 @@ public class Test {
 		
 		for(int i = 0; i<4; i++) {
 			for(int j = 0; j<=i; j++) {
-				ChessKnightRecursive p = new ChessKnightRecursive(new Position(i,j), boardSize);
+				FullPathRecursive p = new FullPathRecursive(new Position(i,j), boardSize);
 				boolean result = p.solution();
 				System.out.println(String.format("It is possible to cover the 64 squares with just one horse starting at [%s-%s]: %s - reached: %s", i, j, result, p.board.visitedCount()));
 				maxReached = Math.max(maxReached, p.board.visitedCount());

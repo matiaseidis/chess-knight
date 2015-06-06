@@ -1,4 +1,4 @@
-package chess;
+package chess.solution.recursive;
 
 import java.util.Stack;
 
