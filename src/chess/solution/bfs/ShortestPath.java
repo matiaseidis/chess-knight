@@ -1,6 +1,6 @@
 package chess.solution.bfs;
 
-import chess.graph.Board;
+import chess.graph.UBoard;
 import chess.graph.Knight;
 
 import java.util.Arrays;
@@ -24,7 +24,7 @@ public class ShortestPath {
     private static void test(int x, int y, int from, int to) {
 
         Knight knight = new Knight(x, y);
-        Board g = new Board(x * y, knight);
+        UBoard g = new UBoard(x * y, knight);
         BFS bfs = new BFS(g);
 
         int[] path = bfs.shortestPath(from, to);

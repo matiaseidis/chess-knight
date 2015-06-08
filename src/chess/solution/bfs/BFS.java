@@ -1,13 +1,11 @@
 package chess.solution.bfs;
 
-import chess.graph.Board;
+import chess.graph.UBoard;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
-import java.util.Stack;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 /**
  * Created by us on 06/06/15.
@@ -15,8 +13,9 @@ import java.util.stream.IntStream;
 public class BFS {
     final boolean[] visited;
     final int[] edgeTo;
-    final Board board;
-    public BFS(Board g) {
+    final UBoard board;
+
+    public BFS(UBoard g) {
         this.board = g;
         this.visited = new boolean[g.v()];
         this.edgeTo = new int[g.v()];

@@ -1,6 +1,6 @@
 package chess.solution.dfs;
 
-import chess.graph.Board;
+import chess.graph.UBoard;
 import chess.graph.Knight;
 
 import java.util.Stack;
@@ -21,7 +21,7 @@ public class FullPath {
     private static void test(int x, int y) {
 
         Knight knight = new Knight(x, y);
-        Board g = new Board(x * y, knight);
+        UBoard g = new UBoard(x * y, knight);
         DFS dfs = new DFS(g);
 
         Stack<Integer> path = dfs.traverse(0);
